@@ -16,6 +16,7 @@
 BASE_TAR_PATH := out/helper-images/prebuilt
 TAR += ${BASE_TAR_PATH}-x86_64.tar.xz
 TAR += ${BASE_TAR_PATH}-arm.tar.xz
+TAR += ${BASE_TAR_PATH}-i386.tar.xz
 
 # Binaries that we support for the helper image. We are using the following
 # pattern match:
@@ -26,6 +27,7 @@ BASE_BINARY_PATH := dockerfiles/build/binaries/gitlab-runner-helper
 BINARIES := ${BASE_BINARY_PATH}.x86_64-windows
 BINARIES += ${BASE_BINARY_PATH}.x86_64
 BINARIES += ${BASE_BINARY_PATH}.arm
+BINARIES += ${BASE_BINARY_PATH}.i386
 
 # Define variables with the archiecture for each matching binary. We are using
 # the following pattern match GO_ARCH_{{arch}}-{{os}}, these should match up
@@ -33,6 +35,7 @@ BINARIES += ${BASE_BINARY_PATH}.arm
 GO_ARCH_x86_64 = linux/amd64
 GO_ARCH_arm = linux/arm
 GO_ARCH_x86_64-windows = windows/amd64
+GO_ARCH_i386 = linux/386
 
 # Go files that are used to create the helper binary.
 HELPER_GO_FILES ?= $(shell find common network vendor -name '*.go')
