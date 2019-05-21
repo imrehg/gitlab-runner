@@ -28,6 +28,8 @@ func (l *linuxInfo) architecture(arch string) string {
 		return "arm"
 	case "amd64":
 		return "x86_64"
+	case "i586", "i686":
+		return "i386"
 	}
 
 	if arch != "" {
@@ -37,6 +39,8 @@ func (l *linuxInfo) architecture(arch string) string {
 	switch runtime.GOARCH {
 	case "amd64":
 		return "x86_64"
+	case "386":
+		return "i386"
 	default:
 		return runtime.GOARCH
 	}
